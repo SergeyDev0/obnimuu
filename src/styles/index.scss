@@ -1,0 +1,93 @@
+* { 
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #004435;
+	color: #fff;
+	width: 100%;
+	height: 100dvh;
+}
+
+#root {
+	height: 100%;
+	width: 100%;
+}
+
+a {
+	color: #fff;
+}
+
+.swiper {
+	height: 100%;
+}
+
+.slide {
+	display: flex;
+	width: 100%;
+	height: 100%;
+
+	&.sleep &__img-wrapper {
+		background-image: url(../assets/sleep.jpg);
+	}
+
+	&.moments &__img-wrapper {
+		background-image: url(../assets/moments.jpg);
+	}
+
+	&.work &__img-wrapper {
+		background-image: url(../assets/work.jpg);
+	}
+
+	&__panel {
+		width: 500px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		gap: 35px;
+		font-size: 40px;
+	}
+
+	&__img-wrapper {
+		height: 100%;
+		flex-grow: 1;
+		background-size: 100% 100%;
+		background-repeat: no-repeat;
+	}
+}
+
+.first-screen {
+	height: 100%;
+
+	& .swiper-pagination {
+		width: calc(100% - 500px);
+		right: 0;
+		bottom: 26px;
+		left: auto;
+	}
+
+	& .swiper-pagination-bullet {
+		width: 19px;
+		height: 19px;
+		background-color: #fff;
+		opacity: .3;
+		margin: 0 16px !important;
+	}
+
+	& .swiper-pagination-bullet-active {
+		background-color: #fff;
+		opacity: .7;
+	}
+}
+
+.preview {
+  position: fixed; /* Фиксированное положение */
+  top: 0; /* Начало от верхней части экрана */
+  left: -100%; /* Начальное положение за пределами экрана */
+  width: 100vw; /* Ширина на весь экран */
+  height: 100vh; /* Высота на весь экран */
+  background-color: rgba(0, 0, 0, 0.8); /* Полупрозрачный фон */
+  z-index: 10; /* Убедитесь, что контейнер выше других элементов */
+  transition: left 0.5s ease; /* Плавный переход */
+}
