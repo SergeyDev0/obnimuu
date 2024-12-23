@@ -1,5 +1,6 @@
 import React from "react";
 import { gsap } from "gsap";
+import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -8,34 +9,137 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 const App = () => {
+  const bodyRef = React.useRef(null);
   const previewRef = React.useRef(null);
+  const previewWrapperRef = React.useRef(null);
+  const firstScreenRef = React.useRef(null);
+  const descriptionRef = React.useRef(null);
+  const productLineRef = React.useRef(null);
+  const aboutRef = React.useRef(null);
+
+  gsap.registerPlugin(ScrollTrigger);
 
   React.useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: bodyRef.current,
+        start: "top top",
+        end: "+=3460",
+        scrub: 1,
+        pin: true,
+        anticipatePin: 1,
+      },
+    });
 
-    const preview = previewRef.current;
-
-    if (preview) {
-      // Проверка, что элемент существует
-      gsap.to(preview, {
-        x: 100,
-        duration: 2,
-        ease: "bounce",
-        delay: 1,
+    tl.fromTo(
+      previewRef.current, // Второй экран появление
+      {
+        translateX: "-100vw",
+      },
+      {
+        translateX: "100vw",
+        ease: "none",
+        duration: 10,
         scrollTrigger: {
-          trigger: "#thirdCircle",
+          scrub: 1,
+          start: "top top",
+          end: "+=600",
         },
-      });
-    }
+      }
+    );
+
+    tl.to(
+      previewWrapperRef.current, // Второй экран исчезновение
+      {
+        opacity: 0,
+        ease: "none",
+        scrollTrigger: {
+          scrub: 1,
+          start: "+=900",
+          end: "960",
+        },
+      },
+      "+=0.1"
+    );
+
+    tl.to(
+      descriptionRef.current, // Описание появление
+      {
+        opacity: 1,
+        ease: "none",
+        scrollTrigger: {
+          scrub: 1,
+          start: "+=1060",
+          end: "1160",
+        },
+      },
+      "+=0.1"
+    );
+
+    tl.to(
+      descriptionRef.current, // Описание исчезновение
+      {
+        opacity: 0,
+        ease: "none",
+        scrollTrigger: {
+          scrub: 1,
+          start: "+=1760",
+          end: "1860",
+        },
+      },
+      "+=0.1"
+    );
+
+    tl.to(
+      productLineRef.current, // Продуктовая линейка
+      {
+        opacity: 1,
+        ease: "none",
+        scrollTrigger: {
+          scrub: 1,
+          start: "+=2060",
+          end: "2160",
+        },
+      },
+      "+=0.1"
+    );
+
+    tl.to(
+      productLineRef.current, // Продуктовая линейка
+      {
+        opacity: 0,
+        ease: "none",
+        scrollTrigger: {
+          scrub: 1,
+          start: "+=2660",
+          end: "2760",
+        },
+      },
+      "+=0.1"
+    );
+
+    tl.to(
+      aboutRef.current, // О проекте появление
+      {
+        opacity: 1,
+        ease: "none",
+        scrollTrigger: {
+          scrub: 1,
+          start: "+=2960",
+          end: "end end",
+        },
+      },
+      "+=0.1"
+    );
 
     return () => {
-      ScrollTrigger.kill(); // Удаление триггеров при размонтировании
+      tl.scrollTrigger?.kill();
     };
   }, []);
 
   return (
-    <>
-      <div className="first-screen">
+    <div ref={bodyRef}>
+      <div className="first-screen" ref={firstScreenRef}>
         <Swiper
           modules={[Pagination]}
           spaceBetween={0}
@@ -47,7 +151,7 @@ const App = () => {
             <div className="slide sleep">
               <div className="slide__panel">
                 <img src={logo} alt="logo" />
-                <h2 className="slide__descrpition">И сны будут слаще</h2>
+                <h2 className="slide__description">И сны будут слаще</h2>
               </div>
               <div className="slide__img-wrapper"></div>
             </div>
@@ -56,7 +160,7 @@ const App = () => {
             <div className="slide moments">
               <div className="slide__panel">
                 <img src={logo} alt="logo" />
-                <h2 className="slide__descrpition">И моменты станут ярче</h2>
+                <h2 className="slide__description">И моменты станут ярче</h2>
               </div>
               <div className="slide__img-wrapper"></div>
             </div>
@@ -65,7 +169,7 @@ const App = () => {
             <div className="slide work">
               <div className="slide__panel">
                 <img src={logo} alt="logo" />
-                <h2 className="slide__descrpition">И всё получится</h2>
+                <h2 className="slide__description">И всё получится</h2>
               </div>
               <div className="slide__img-wrapper"></div>
             </div>
@@ -73,9 +177,35 @@ const App = () => {
         </Swiper>
       </div>
       <div ref={previewRef} className="preview">
-        asfasf
+        <div ref={previewWrapperRef} className="preview__wrapper">
+          <img src={logo} alt="logo" />
+          <h2 className="slide__description">
+            Свежие, молочные продукты <br /> с заботой о тебе
+          </h2>
+        </div>
+        <div className="hide preview__wrapper" ref={descriptionRef}>
+          <img src={logo} alt="logo" />
+          <div className="slide__description__row">
+            <h2 className="slide__description">
+              «Обнимуу» - молоко и молочные продукты, которые созданы дарить
+              заботу и теплые моменты спокойствия и нежности тебе и твоим самым
+              близким людям.
+            </h2>
+						<h2 className="slide__description">
+              «Обнимуу» - молоко и молочные продукты, которые созданы дарить
+              заботу и теплые моменты спокойствия и нежности тебе и твоим самым
+              близким людям.
+            </h2>
+          </div>
+        </div>
+        <div className="hide preview__wrapper" ref={productLineRef}>
+          Товары
+        </div>
+        <div className="hide preview__wrapper" ref={aboutRef}>
+          О продукте
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 
