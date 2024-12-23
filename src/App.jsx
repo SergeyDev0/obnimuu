@@ -1,8 +1,7 @@
 import React from "react";
 import { gsap } from "gsap";
-import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Pagination } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import logo from "./assets/logo.png";
 import "swiper/css";
@@ -141,10 +140,13 @@ const App = () => {
     <div ref={bodyRef}>
       <div className="first-screen" ref={firstScreenRef}>
         <Swiper
-          modules={[Pagination]}
+          modules={[Pagination, Autoplay]}
           spaceBetween={0}
           slidesPerView={1}
           pagination={{ clickable: true }}
+					autoplay={{
+						delay: 3000,
+					}}
           loop={true}
         >
           <SwiperSlide>
