@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Pagination, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import logo from "./assets/logo.png";
+import descriptionMilk from "./assets/description-milk.png";
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -186,18 +187,14 @@ const App = () => {
           </h2>
         </div>
         <div className="hide preview__wrapper" ref={descriptionRef}>
-          <img src={logo} alt="logo" />
+          <img src={logo} alt="logo" className="slide__description__logo" />
           <div className="slide__description__row">
             <h2 className="slide__description">
               «Обнимуу» - молоко и молочные продукты, которые созданы дарить
               заботу и теплые моменты спокойствия и нежности тебе и твоим самым
               близким людям.
             </h2>
-						<h2 className="slide__description">
-              «Обнимуу» - молоко и молочные продукты, которые созданы дарить
-              заботу и теплые моменты спокойствия и нежности тебе и твоим самым
-              близким людям.
-            </h2>
+						<img src={descriptionMilk} alt="Молоко обнимуу" />
           </div>
         </div>
         <div className="hide preview__wrapper" ref={productLineRef}>

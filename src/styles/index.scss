@@ -60,6 +60,34 @@ a {
 		background-repeat: no-repeat;
 		background-size: cover;
 	}
+
+	&__description__row {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 0 100px 0 50px;
+		width: 100%;
+
+		& > img {
+			aspect-ratio: 4 / 5;
+			width: 400px;
+			height: auto;
+			display: block;
+		}
+
+		& > .slide__description {
+			width: 60%;
+			text-align: left;
+		}
+	}
+
+	&__description__logo {
+		position: absolute;
+		left: 0;
+		right: 0;
+		margin: auto;
+		top: 35px;
+	}
 }
 
 .first-screen {
