@@ -5,6 +5,10 @@
   border: none;
 }
 
+img {
+	user-select: none;
+}
+
 *,
 *::before,
 *::after {
