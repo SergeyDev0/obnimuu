@@ -14,9 +14,9 @@ import aboutProcessing from "./assets/processing.png";
 import productMilk1 from "./assets/product-milk1.png";
 import productMilk2 from "./assets/product-milk2.png";
 import productMilk3 from "./assets/product-milk3.png";
-import productMilkBottle1 from "./assets/product-milk1.png";
-import productMilkBottle2 from "./assets/product-milk2.png";
-import productMilkBottle3 from "./assets/product-milk3.png";
+import productMilkBottle1 from "./assets/product-milk-bottle1.png";
+import productMilkBottle2 from "./assets/product-milk-bottle2.png";
+import productMilkBottle3 from "./assets/product-milk-bottle3.png";
 import productKefir1 from "./assets/product-kefir1.png";
 import productKefir2 from "./assets/product-kefir2.png";
 import productKefir3 from "./assets/product-kefir3.png";
@@ -197,7 +197,7 @@ const App = () => {
                   className="first-screen__leaf bottom-leaf"
                   src={bottomLeaf}
                 />
-                <img src={logo} alt="logo" />
+                <img className="logo" src={logo} alt="logo" />
                 <h2 className="slide__description">И моменты станут ярче</h2>
               </div>
               <div className="slide__img-wrapper"></div>
@@ -211,7 +211,7 @@ const App = () => {
                   className="first-screen__leaf bottom-leaf"
                   src={bottomLeaf}
                 />
-                <img src={logo} alt="logo" />
+                <img className="logo" src={logo} alt="logo" />
                 <h2 className="slide__description">И всё получится</h2>
               </div>
               <div className="slide__img-wrapper"></div>
@@ -222,15 +222,18 @@ const App = () => {
       <div ref={previewRef} className="preview">
         <div ref={previewWrapperRef} className="preview__wrapper">
           <div className="wrapper-screen">
-            <img src={logo} alt="logo" />
+            <img className="logo" src={logo} alt="logo" />
             <h2 className="slide__description">
               Свежие, молочные продукты <br /> с заботой о тебе
             </h2>
+            <img className="preview__leaf top-leaf" src={topLeaf} />
+            <img className="preview__leaf top-leaf1" src={topLeaf} />
+            <img className="preview__leaf bottom-leaf" src={bottomLeaf} />
           </div>
         </div>
         <div className="hide preview__wrapper" ref={descriptionRef}>
           <div className="wrapper-screen description">
-            <img src={logo} alt="logo" className="slide__description__logo" />
+            <img src={logo} alt="logo" className="logo" />
             <div className="slide__description__row">
               <h2 className="slide__description">
                 «Обнимуу» - молоко и молочные продукты, которые созданы дарить
@@ -238,6 +241,8 @@ const App = () => {
                 самым близким людям.
               </h2>
               <img src={descriptionMilk} alt="Молоко обнимуу" />
+              <img className="description__leaf bottom-leaf" src={bottomLeaf} />
+              <img className="description__leaf bottom-leaf1" src={bottomLeaf} />
             </div>
           </div>
         </div>
@@ -252,91 +257,95 @@ const App = () => {
               </p>
             </div>
             <div className="products__row">
-              <Swiper
-                modules={[Pagination]}
-                spaceBetween={0}
-                slidesPerView={1}
-                pagination={{ clickable: true }}
-                loop={true}
-              >
-                <SwiperSlide>
-                  <img src={productMilk1} alt="Молоко в коробке 3,2%" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img src={productMilk2} alt="Молоко в коробке 2,5%" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img src={productMilk3} alt="Молоко в коробке 1,5%" />
-                </SwiperSlide>
-              </Swiper>
-              <Swiper
-                modules={[Pagination]}
-                spaceBetween={0}
-                slidesPerView={1}
-                pagination={{ clickable: true }}
-                loop={true}
-              >
-                <SwiperSlide>
-                  <img src={productMilkBottle1} alt="Молоко в бутылке 3,2%" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img src={productMilkBottle2} alt="Молоко в бутылке 3,2%" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img src={productMilkBottle3} alt="Молоко в бутылке 3,2%" />
-                </SwiperSlide>
-              </Swiper>
-              <Swiper
-                modules={[Pagination]}
-                spaceBetween={0}
-                slidesPerView={1}
-                pagination={{ clickable: true }}
-                loop={true}
-              >
-                <SwiperSlide>
-                  <img src={productKefir1} alt="Кефир 3,2%" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img src={productKefir2} alt="Кефир 2,5%" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img src={productKefir3} alt="Кефир 1,0%" />
-                </SwiperSlide>
-              </Swiper>
-              <Swiper
-                modules={[Pagination]}
-                spaceBetween={0}
-                slidesPerView={1}
-                pagination={{ clickable: true }}
-                loop={true}
-              >
-                <SwiperSlide>
-                  <img src={productCottageCheese1} alt="Творог 9%" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img src={productCottageCheese2} alt="Творог 5%" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img src={productCottageCheese3} alt="Творог 0%" />
-                </SwiperSlide>
-              </Swiper>
-              <Swiper
-                modules={[Pagination]}
-                spaceBetween={0}
-                slidesPerView={1}
-                pagination={{ clickable: true }}
-                loop={true}
-              >
-                <SwiperSlide>
-                  <img src={productSourCream1} alt="Сметана 10%" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img src={productSourCream2} alt="Сметана 15%" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img src={productSourCream3} alt="Сметана 20%" />
-                </SwiperSlide>
-              </Swiper>
+              <div className="products__row-top">
+                <Swiper
+                  modules={[Pagination]}
+                  spaceBetween={0}
+                  slidesPerView={1}
+                  pagination={{ clickable: true }}
+                  loop={true}
+                >
+                  <SwiperSlide>
+                    <img src={productMilk1} alt="Молоко в коробке 3,2%" />
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <img src={productMilk2} alt="Молоко в коробке 2,5%" />
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <img src={productMilk3} alt="Молоко в коробке 1,5%" />
+                  </SwiperSlide>
+                </Swiper>
+                <Swiper
+                  modules={[Pagination]}
+                  spaceBetween={0}
+                  slidesPerView={1}
+                  pagination={{ clickable: true }}
+                  loop={true}
+                >
+                  <SwiperSlide>
+                    <img src={productMilkBottle1} alt="Молоко в бутылке 3,2%" />
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <img src={productMilkBottle2} alt="Молоко в бутылке 3,2%" />
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <img src={productMilkBottle3} alt="Молоко в бутылке 3,2%" />
+                  </SwiperSlide>
+                </Swiper>
+              </div>
+              <div className="products__row-bottom">
+                <Swiper
+                  modules={[Pagination]}
+                  spaceBetween={0}
+                  slidesPerView={1}
+                  pagination={{ clickable: true }}
+                  loop={true}
+                >
+                  <SwiperSlide>
+                    <img src={productKefir1} alt="Кефир 3,2%" />
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <img src={productKefir2} alt="Кефир 2,5%" />
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <img src={productKefir3} alt="Кефир 1,0%" />
+                  </SwiperSlide>
+                </Swiper>
+                <Swiper
+                  modules={[Pagination]}
+                  spaceBetween={0}
+                  slidesPerView={1}
+                  pagination={{ clickable: true }}
+                  loop={true}
+                >
+                  <SwiperSlide>
+                    <img src={productCottageCheese1} alt="Творог 9%" />
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <img src={productCottageCheese2} alt="Творог 5%" />
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <img src={productCottageCheese3} alt="Творог 0%" />
+                  </SwiperSlide>
+                </Swiper>
+                <Swiper
+                  modules={[Pagination]}
+                  spaceBetween={0}
+                  slidesPerView={1}
+                  pagination={{ clickable: true }}
+                  loop={true}
+                >
+                  <SwiperSlide>
+                    <img src={productSourCream1} alt="Сметана 10%" />
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <img src={productSourCream2} alt="Сметана 15%" />
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <img src={productSourCream3} alt="Сметана 20%" />
+                  </SwiperSlide>
+                </Swiper>
+              </div>
             </div>
           </div>
         </div>
@@ -380,7 +389,7 @@ const App = () => {
               <a href="https://milkexpress.ru/" className="about__link">
                 На сайт производителя
               </a>
-              <a href="mailto:obnimuu@obnimuu.ru" className="about__link">
+              <a href="mailto:Info@moltimilk.ru" className="about__link">
                 Напишите нам
               </a>
             </div>
