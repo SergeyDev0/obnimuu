@@ -206,7 +206,7 @@ const App = () => {
           slidesPerView={1}
           pagination={{ clickable: true }}
           autoplay={{
-            delay: 1000000,
+            delay: 3000,
           }}
           loop={true}
         >
