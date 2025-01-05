@@ -1,4 +1,5 @@
 import React from "react";
+import { useMediaQuery } from "./hooks/useMediaQuery";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Pagination, Autoplay } from "swiper/modules";
@@ -37,6 +38,9 @@ const App = () => {
   const descriptionRef = React.useRef(null);
   const productLineRef = React.useRef(null);
   const aboutRef = React.useRef(null);
+  const featuresRef = React.useRef(null);
+
+  const isMobile = useMediaQuery("(max-width: 580px)");
 
   gsap.registerPlugin(ScrollTrigger);
 
@@ -45,7 +49,7 @@ const App = () => {
       scrollTrigger: {
         trigger: bodyRef.current,
         start: "top top",
-        end: "+=3460",
+        end: (isMobile ? "+=2960" : "+=2360"),
         scrub: 1,
         pin: true,
         anticipatePin: 1,
@@ -92,8 +96,8 @@ const App = () => {
         ease: "none",
         scrollTrigger: {
           scrub: 1,
-          start: "+=1060",
-          end: "1160",
+          start: "+=960",
+          end: "1060",
         },
       },
       "+=0.1"
@@ -106,8 +110,8 @@ const App = () => {
         ease: "none",
         scrollTrigger: {
           scrub: 1,
-          start: "+=1760",
-          end: "1860",
+          start: "+=1560",
+          end: "1660",
         },
       },
       "+=0.1"
@@ -121,8 +125,8 @@ const App = () => {
         ease: "none",
         scrollTrigger: {
           scrub: 1,
-          start: "+=2060",
-          end: "2160",
+          start: "+=1660",
+          end: "1760",
         },
       },
       "+=0.1"
@@ -135,8 +139,8 @@ const App = () => {
         ease: "none",
         scrollTrigger: {
           scrub: 1,
-          start: "+=2660",
-          end: "2760",
+          start: "+=2160",
+          end: "2260",
         },
       },
       "+=0.1"
@@ -150,12 +154,43 @@ const App = () => {
         ease: "none",
         scrollTrigger: {
           scrub: 1,
-          start: "+=2960",
-          end: "end end",
+          start: "+=2260",
+          end: "2360",
         },
       },
       "+=0.1"
     );
+
+    if (isMobile) {
+      tl.to(
+        aboutRef.current, // О проекте исчезновение
+        {
+          opacity: 0,
+          ease: "none",
+          scrollTrigger: {
+            scrub: 1,
+            start: "+=2760",
+            end: "2860",
+          },
+        },
+        "+=0.1"
+      );
+
+      tl.to(
+        featuresRef.current, // Преимущества появление
+        {
+          opacity: 1,
+          visibility: "visible",
+          ease: "none",
+          scrollTrigger: {
+            scrub: 1,
+            start: "+=2860",
+            end: "2960",
+          },
+        },
+        "+=0.1"
+      );
+    }
 
     return () => {
       tl.scrollTrigger?.kill();
@@ -220,7 +255,7 @@ const App = () => {
         </Swiper>
       </div>
       <div ref={previewRef} className="preview">
-        <div ref={previewWrapperRef} className="preview__wrapper">
+        <div ref={previewWrapperRef} className="preview__wrapper second-slide">
           <div className="wrapper-screen">
             <img className="logo" src={logo} alt="logo" />
             <h2 className="slide__description">
@@ -240,9 +275,12 @@ const App = () => {
                 заботу и теплые моменты спокойствия и нежности тебе и твоим
                 самым близким людям.
               </h2>
-              <img src={descriptionMilk} alt="Молоко обнимуу" />
+              <img className="milk" src={descriptionMilk} alt="Молоко обнимуу" />
               <img className="description__leaf bottom-leaf" src={bottomLeaf} />
-              <img className="description__leaf bottom-leaf1" src={bottomLeaf} />
+              <img
+                className="description__leaf bottom-leaf1"
+                src={bottomLeaf}
+              />
             </div>
           </div>
         </div>
@@ -350,7 +388,7 @@ const App = () => {
           </div>
         </div>
         <div className="hide preview__wrapper" ref={aboutRef}>
-          <div className="wrapper-screen about">
+          <div className="wrapper-screen about mobile">
             <div className="about__col">
               <div className="about__logo-list">
                 <img src={logo} alt="Логотип обнимуу" />
@@ -390,6 +428,77 @@ const App = () => {
                 На сайт производителя
               </a>
               <a href="mailto:Info@moltimilk.ru" className="about__link">
+                Напишите нам
+              </a>
+            </div>
+
+            <div className="about__mobile">
+              <div className="wrapper">
+                <div className="about__left-col">
+                  <img src={logo} alt="Логотип обнимуу" />
+                  <p>«Обнимуу» - флагманский бренд «Милк Экспресс».</p>
+                  <ul className="about__features-list">
+                    <li className="about__features-list__item">
+                      Переработка 500 тонн молока в сутки
+                    </li>
+                    <li className="about__features-list__item">
+                      Общая площадь 10500 кв.м. производственных площадок
+                    </li>
+                    <li className="about__features-list__item">
+                      более 500 человек – численность работников
+                    </li>
+                  </ul>
+                </div>
+                <div className="about__right-col">
+                  <img src={logoMilkExpress} alt="Логотип милк экспресс" />
+                  <p className="about__text-top">
+                    Российский производитель молочной продукции. <br />
+                    Входит в ТОП-25 компаний-переработчиков молока
+                  </p>
+                  <p className="about__text-list">Филиалы «Милк Экспресс»:</p>
+                  <ul className="about__list">
+                    <li>Молочный завод д. Серково (г. Щелково)</li>
+                    <li>Молочный завод в д. Зарудня (г. Коломна)</li>
+                    <li>«Череповецкий молочный комбинат»</li>
+                    <li>
+                      Распределительный центр в г. Щелково на 8000м2 и
+                      собственная логистика
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div className="about__links">
+                <a href="https://milkexpress.ru/" className="about__link">
+                  На сайт производителя
+                </a>
+                <a href="mailto:Info@moltimilk.ru" className="about__link">
+                  Напишите нам
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="hide preview__wrapper" ref={featuresRef}>
+          <div className="wrapper-screen features">
+            <img src={logo} alt="Логотип обнимуу" />
+            <p>«Обнимуу» - флагманский бренд «Милк Экспресс».</p>
+            <ul className="features__features-list">
+              <li className="features__features-list__item">
+                Переработка 500 тонн молока в сутки
+              </li>
+              <li className="features__features-list__item">
+                Общая площадь 10500 кв.м. производственных площадок
+              </li>
+              <li className="features__features-list__item">
+                более 500 человек – численность работников
+              </li>
+            </ul>
+            <div className="features__links">
+              <a href="https://milkexpress.ru/" className="features__link">
+                На сайт производителя
+              </a>
+              <a href="mailto:Info@moltimilk.ru" className="features__link">
                 Напишите нам
               </a>
             </div>
