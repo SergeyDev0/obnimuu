@@ -436,13 +436,13 @@ const App = () => {
               <div className="wrapper">
                 <div className="about__left-col">
                   <img src={logo} alt="Логотип обнимуу" />
-                  <p>«Обнимуу» - флагманский бренд «Милк Экспресс».</p>
+                  <p>«Обнимуу»&nbsp;- флагманский бренд «Милк&nbsp;Экспресс».</p>
                   <ul className="about__features-list">
                     <li className="about__features-list__item">
                       Переработка 500 тонн молока в сутки
                     </li>
                     <li className="about__features-list__item">
-                      Общая площадь 10500 кв.м. производственных площадок
+                      Общая площадь производственных площадок 10500&nbsp;кв.м.
                     </li>
                     <li className="about__features-list__item">
                       более 500 человек – численность работников
@@ -455,13 +455,13 @@ const App = () => {
                     Российский производитель молочной продукции. <br />
                     Входит в ТОП-25 компаний-переработчиков молока
                   </p>
-                  <p className="about__text-list">Филиалы «Милк Экспресс»:</p>
+                  <p className="about__text-list">Филиалы «Милк&nbsp;Экспресс»:</p>
                   <ul className="about__list">
-                    <li>Молочный завод д. Серково (г. Щелково)</li>
-                    <li>Молочный завод в д. Зарудня (г. Коломна)</li>
+                    <li>Молочный завод д. Серково (г.&nbsp;Щелково)</li>
+                    <li>Молочный завод в д. Зарудня (г.&nbsp;Коломна)</li>
                     <li>«Череповецкий молочный комбинат»</li>
                     <li>
-                      Распределительный центр в г. Щелково на 8000м2 и
+                      Распределительный центр в г.&nbsp;Щелково на 8000м2 и
                       собственная логистика
                     </li>
                   </ul>
@@ -482,13 +482,13 @@ const App = () => {
         <div className="hide preview__wrapper" ref={featuresRef}>
           <div className="wrapper-screen features">
             <img src={logo} alt="Логотип обнимуу" />
-            <p>«Обнимуу» - флагманский бренд «Милк Экспресс».</p>
+            <p>«Обнимуу» - флагманский бренд «Милк&nbsp;Экспресс».</p>
             <ul className="features__features-list">
               <li className="features__features-list__item">
                 Переработка 500 тонн молока в сутки
               </li>
               <li className="features__features-list__item">
-                Общая площадь 10500 кв.м. производственных площадок
+                Общая площадь 10500 производственных площадок&nbsp;кв.м.
               </li>
               <li className="features__features-list__item">
                 более 500 человек – численность работников
