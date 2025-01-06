@@ -59,10 +59,10 @@ const App = () => {
     tl.fromTo(
       previewRef.current, // Второй экран появление
       {
-        translateX: "0",
+        translateY: "100vh",
       },
       {
-        translateX: "100vw",
+        translateY: "-100vh",
         visibility: "visible",
         ease: "none",
         duration: 10,
