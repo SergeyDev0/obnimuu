@@ -259,7 +259,7 @@ const App = () => {
           <div className="wrapper-screen">
             <img className="logo" src={logo} alt="logo" />
             <h2 className="slide__description">
-              Свежие, молочные продукты <br /> с заботой о тебе
+              Свежие молочные продукты <br /> с заботой о тебе
             </h2>
             <img className="preview__leaf top-leaf" src={topLeaf} />
             <img className="preview__leaf top-leaf1" src={topLeaf} />
