@@ -49,7 +49,7 @@ const App = () => {
       scrollTrigger: {
         trigger: bodyRef.current,
         start: "top top",
-        end: (isMobile ? "+=2960" : "+=2360"),
+        end: isMobile ? "+=2960" : "+=2360",
         scrub: 1,
         pin: true,
         anticipatePin: 1,
@@ -275,7 +275,11 @@ const App = () => {
                 заботу и теплые моменты спокойствия и нежности тебе и твоим
                 самым близким людям.
               </h2>
-              <img className="milk" src={descriptionMilk} alt="Молоко обнимуу" />
+              <img
+                className="milk"
+                src={descriptionMilk}
+                alt="Молоко обнимуу"
+              />
               <img className="description__leaf bottom-leaf" src={bottomLeaf} />
               <img
                 className="description__leaf bottom-leaf1"
@@ -389,54 +393,13 @@ const App = () => {
         </div>
         <div className="hide preview__wrapper" ref={aboutRef}>
           <div className="wrapper-screen about mobile">
-            <div className="about__col">
-              <div className="about__logo-list">
-                <img src={logo} alt="Логотип обнимуу" />
-                <img src={logoMilkExpress} alt="Логотип милк экспресс" />
-              </div>
-              <div className="about__text">
-                <p>«Обнимуу» - флагманский бренд «Милк Экспресс».</p>
-                <p className="about__text-top">
-                  Российский производитель молочной продукции. <br />
-                  Входит в ТОП-25 компаний-переработчиков молока
-                </p>
-                <p className="about__text-list">Филиалы «Милк Экспресс»:</p>
-                <ul className="about__list">
-                  <li>Молочный завод д. Серково (г. Щелково)</li>
-                  <li>Молочный завод в д. Зарудня (г. Коломна)</li>
-                  <li>«Череповецкий молочный комбинат»</li>
-                  <li>
-                    Распределительный центр в г. Щелково на 8000м2 и собственная
-                    логистика
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="about__info-list">
-              <img src={aboutProcessing} alt="Переработка 500 тонн в сутки" />
-              <img
-                src={aboutPlatforms}
-                alt="Общая площадь 10500 производственных площадок"
-              />
-              <img
-                src={aboutWorkers}
-                alt="Более 500 человек численность работников"
-              />
-            </div>
-            <div className="about__links">
-              <a href="https://milkexpress.ru/" className="about__link">
-                На сайт производителя
-              </a>
-              <a href="mailto:Info@moltimilk.ru" className="about__link">
-                Напишите нам
-              </a>
-            </div>
-
             <div className="about__mobile">
               <div className="wrapper">
                 <div className="about__left-col">
                   <img src={logo} alt="Логотип обнимуу" />
-                  <p>«Обнимуу»&nbsp;- флагманский бренд «Милк&nbsp;Экспресс».</p>
+                  <p>
+                    «Обнимуу»&nbsp;- флагманский бренд «Милк&nbsp;Экспресс».
+                  </p>
                   <ul className="about__features-list">
                     <li className="about__features-list__item">
                       Переработка 500 тонн молока в сутки
@@ -455,7 +418,9 @@ const App = () => {
                     Российский производитель молочной продукции. <br />
                     Входит в ТОП-25 компаний-переработчиков молока
                   </p>
-                  <p className="about__text-list">Филиалы «Милк&nbsp;Экспресс»:</p>
+                  <p className="about__text-list">
+                    Филиалы «Милк&nbsp;Экспресс»:
+                  </p>
                   <ul className="about__list">
                     <li>Молочный завод д. Серково (г.&nbsp;Щелково)</li>
                     <li>Молочный завод в д. Зарудня (г.&nbsp;Коломна)</li>
