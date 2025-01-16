@@ -591,7 +591,6 @@ a {
 
     & .wrapper {
       display: flex;
-			justify-content: center;
       width: 100%;
       gap: 20px;
 
@@ -603,6 +602,10 @@ a {
     & .about__left-col {
       width: 360px;
       text-align: left;
+
+      @media screen and (min-width: 1440px) {
+        width: 700px;
+      }
 
       @media screen and (max-width: 580px) {
         text-align: center;
@@ -627,6 +630,10 @@ a {
         line-height: 119%;
         margin-top: 20px;
         margin-bottom: 60px;
+
+				@media screen and (min-width: 1440px) and (min-height: 750px) {
+					font-size: 26px;
+				}
 
         @media screen and (max-width: 900px) {
           font-size: 18px;
@@ -657,6 +664,15 @@ a {
           padding: 16px 16px 15px 16px;
           border-radius: 5px;
           background-color: #003328;
+
+					@media screen and (min-width: 1440px) and (min-height: 750px) {
+						height: 80px;
+						display: flex;
+						flex-direction: column;
+						justify-content: center;
+						padding: 30px 24px;
+						font-size: 24px;
+					}
 
           @media screen and (max-width: 900px) {
             font-size: 18px;
@@ -691,6 +707,10 @@ a {
         font-size: 22px;
         line-height: 119%;
 
+				@media screen and (min-width: 1440px) and (min-height: 750px) {
+					font-size: 26px;
+				}
+
         @media screen and (max-width: 900px) {
           font-size: 18px;
         }
@@ -713,6 +733,10 @@ a {
         font-size: 22px;
         line-height: 119%;
         margin-bottom: 30px;
+
+				@media screen and (min-width: 1440px) and (min-height: 750px) {
+					font-size: 24px;
+				}
 
         @media screen and (max-width: 900px) {
           font-size: 18px;
@@ -743,6 +767,10 @@ a {
           position: relative;
           padding-left: 15px;
 
+					@media screen and (min-width: 1440px) and (min-height: 750px) {
+						font-size: 26px;
+					}
+
           @media screen and (max-width: 900px) {
             font-size: 18px;
           }
@@ -772,8 +800,16 @@ a {
       justify-content: center;
       width: 100%;
 
+			@media screen and (min-width: 1440px) and (min-height: 750px) {
+				margin-top: 3rem;
+			}
+
       & > a {
         height: 60px;
+
+				@media screen and (min-width: 1440px) and (min-height: 750px) {
+					height: 80px;
+				}
 
         @media screen and (max-width: 900px) {
           font-size: 18px;
@@ -999,7 +1035,7 @@ a {
 .about__features-list {
   display: flex;
   justify-content: space-between;
-	gap: 30px;
+  gap: 30px;
   width: 100%;
 
   & > li {
