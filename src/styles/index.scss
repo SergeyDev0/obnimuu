@@ -630,6 +630,10 @@ a {
         line-height: 119%;
         margin-top: 20px;
         margin-bottom: 60px;
+				
+				@media screen and (min-width: 1587px) {
+					margin-bottom: 95px;
+				}
 
 				@media screen and (min-width: 1440px) and (min-height: 750px) {
 					font-size: 26px;
@@ -666,6 +670,10 @@ a {
           background-color: #003328;
 
 					@media screen and (min-width: 1440px) and (min-height: 750px) {
+						font-size: 18px;
+					}
+
+					@media screen and (min-width: 1440px) {
 						height: 80px;
 						display: flex;
 						flex-direction: column;
